@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>music videos もん GAMEs</title>
+<meta name="description" content="言葉遊びと韻で作ったオリジナル曲を、遊べるゲームにしています。「music videos もん」の楽曲から生まれたリズムゲーム置き場です。">
+<meta property="og:title" content="music videos もん GAMEs">
+<meta property="og:description" content="オリジナル曲がそのまま遊べるリズムゲームになりました。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#161C2B; --bg2:#1E2739; --ink:#FFF3E4; --dim:rgba(255,243,228,.62);
+    --glow:#FFE066; --rose:#E86A8A; --blue:#5FA8FF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);
+    font-family:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Yu Gothic",sans-serif;
+    line-height:1.8;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:940px;margin:0 auto;padding:0 20px}
+
+  /* ---- ヘッダー ---- */
+  header{position:sticky;top:0;z-index:20;background:rgba(22,28,43,.88);
+    backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,243,228,.1)}
+  .hbar{display:flex;align-items:center;justify-content:space-between;
+    height:58px;gap:12px}
+  .logo{font-weight:900;font-size:15px;letter-spacing:.02em;text-decoration:none;
+    display:flex;align-items:center;gap:8px;white-space:nowrap}
+  .logo b{color:var(--glow)}
+  .hlink{font-size:12.5px;font-weight:700;text-decoration:none;color:var(--dim);
+    border:1px solid rgba(255,243,228,.25);border-radius:999px;padding:7px 15px;
+    transition:.15s;white-space:nowrap}
+  .hlink:hover{color:var(--bg);background:var(--glow);border-color:var(--glow)}
+
+  /* ---- 見出し ---- */
+  .hero{padding:64px 0 40px;text-align:center;
+    background:radial-gradient(120% 90% at 50% -20%,rgba(232,106,138,.22),transparent 65%)}
+  .hero h1{font-size:clamp(30px,7.5vw,54px);font-weight:900;line-height:1.15;
+    text-shadow:0 4px 0 rgba(232,106,138,.5)}
+  .hero h1 span{color:var(--glow);text-shadow:0 4px 0 rgba(201,162,39,.5)}
+  .hero p{margin-top:16px;font-size:14.5px;color:var(--dim);font-weight:500}
+
+  /* ---- ゲーム一覧 ---- */
+  section{padding:44px 0}
+  h2{font-size:13px;letter-spacing:.24em;color:var(--dim);font-weight:700;
+    margin-bottom:20px;display:flex;align-items:center;gap:12px}
+  h2::after{content:"";flex:1;height:1px;background:rgba(255,243,228,.14)}
+
+  .card{background:var(--bg2);border:1px solid rgba(255,243,228,.12);
+    border-radius:20px;padding:26px 24px;margin-bottom:16px}
+  .card h3{font-size:clamp(24px,5.5vw,34px);font-weight:900;line-height:1.2}
+  .card .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;
+    background:rgba(255,224,102,.16);color:var(--glow);
+    border-radius:999px;padding:4px 12px;margin-bottom:12px}
+  .card p{font-size:14px;color:var(--dim);margin-top:12px;font-weight:500}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .meta span{font-size:11.5px;font-weight:700;color:var(--dim);
+    border:1px solid rgba(255,243,228,.18);border-radius:8px;padding:5px 10px}
+
+  .plays{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+    font-weight:900;font-size:15px;border-radius:999px;padding:14px 30px;
+    background:var(--glow);color:#1B2233;box-shadow:0 4px 0 #C9A227;transition:.1s}
+  .btn:active{transform:translateY(3px);box-shadow:0 1px 0 #C9A227}
+  .btn.sub{background:transparent;color:var(--ink);box-shadow:none;
+    border:1px solid rgba(255,243,228,.3);font-size:13.5px;padding:13px 24px}
+  .btn.sub:hover{border-color:var(--glow);color:var(--glow)}
+  .note{font-size:11.5px;color:rgba(255,243,228,.45);margin-top:12px;font-weight:500}
+    .pr{font-size:10.5px;color:rgba(255,243,228,.30);margin-bottom:10px;font-weight:500}
+
+  .soon{border-style:dashed;opacity:.55;text-align:center;padding:34px 24px}
+  .soon h3{font-size:18px;font-weight:700}
+  .soon p{margin-top:6px}
+
+  /* ---- チャンネル ---- */
+  .yt{display:flex;gap:20px;align-items:center;flex-wrap:wrap;
+    background:var(--bg2);border:1px solid rgba(255,243,228,.12);
+    border-radius:20px;padding:26px 24px}
+  .yt .txt{flex:1;min-width:240px}
+  .yt h3{font-size:20px;font-weight:900}
+  .yt p{font-size:13.5px;color:var(--dim);margin-top:8px;font-weight:500}
+
+  footer{padding:40px 0 60px;text-align:center;font-size:11.5px;
+    color:rgba(255,243,228,.38);font-weight:500;
+    border-top:1px solid rgba(255,243,228,.08);margin-top:20px}
+  footer a{color:rgba(255,243,228,.55)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hbar">
+    <a class="logo" href="./">music videos もん <b>GAMEs</b></a>
+    <a class="hlink" href="https://www.youtube.com/@%E4%BD%9C%E8%A9%9E%E5%AE%B6%E3%82%82%E3%82%93"
+       target="_blank" rel="noopener">YouTube チャンネル</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <h1>自分の曲が、<br><span>遊べるようになった。</span></h1>
+    <p>言葉遊びと韻で書いた歌詞を、AIアニメーションのMVにしています。<br>
+       その曲を、そのまま遊べるリズムゲームにしました。</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section id="games">
+    <h2>GAMES</h2>
+
+    <div class="card">
+      <div class="tag">リズムゲーム</div>
+      <h3>あのさ、鼻毛</h3>
+      <p>彼の鼻毛が伸びて、90度折れた縦線になって流れてきます。周りに気づかれる前に、
+         リズムに合わせて抜いてください。赤は左、青は右。ミスすると黒い鼻毛が増え、
+         人が集まってきます。抜くたびに減ります。</p>
+      <div class="meta">
+        <span>131 BPM</span><span>3分10秒</span><span>難易度 3段階</span><span>最大588ノーツ</span>
+      </div>
+      <div class="plays">
+        <a class="btn" href="games/anosa/">PCで遊ぶ</a>
+        <a class="btn sub" href="games/anosa/mobile.html">スマホで遊ぶ（軽量版）</a>
+      </div>
+      <p class="note">読み込みに少し時間がかかります。音が出ますので音量にご注意ください。</p>
+    </div>
+
+    <div class="card soon">
+      <h3>次の曲を制作中</h3>
+      <p>曲ごとに、絵柄もルールも変えて作っています。</p>
+    </div>
+  </section>
+
+  <section id="channel">
+    <h2>CHANNEL</h2>
+    <div class="yt">
+      <div class="txt">
+        <h3>「music videos」もん</h3>
+        <p>作詞・編曲・構成・編集、曲によっては歌声も。ぜんぶ一人で作って、
+           映像はAIでアニメーションMVにしています。言葉は全部、自分の頭から出たものです。</p>
+      </div>
+      <a class="btn" href="https://www.youtube.com/@%E4%BD%9C%E8%A9%9E%E5%AE%B6%E3%82%82%E3%82%93"
+         target="_blank" rel="noopener">チャンネルを見る</a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="pr">当サイトはアフィリエイト広告を利用しています。</p>
+      &copy; もん / music videos もん GAMEs<br>
+    <a href="https://www.youtube.com/@%E4%BD%9C%E8%A9%9E%E5%AE%B6%E3%82%82%E3%82%93"
+       target="_blank" rel="noopener">YouTube</a>
+  </div>
+</footer>
+
+</body>
+</html>
