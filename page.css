@@ -1,0 +1,66 @@
+:root{
+  --bg:#161C2B; --bg2:#1E2739; --ink:#FFF3E4; --dim:rgba(255,243,228,.62);
+  --glow:#FFE066; --rose:#E86A8A;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);
+  font-family:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Yu Gothic",sans-serif;
+  line-height:1.9;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+
+header{position:sticky;top:0;z-index:20;background:rgba(22,28,43,.88);
+  backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,243,228,.1)}
+.hbar{display:flex;align-items:center;justify-content:space-between;
+  height:58px;gap:12px;max-width:940px;margin:0 auto;padding:0 20px}
+.logo{font-weight:900;font-size:15px;letter-spacing:.02em;text-decoration:none;
+  display:flex;align-items:center;gap:8px;white-space:nowrap}
+.logo b{color:var(--glow)}
+.hlink{font-size:12.5px;font-weight:700;text-decoration:none;color:var(--dim);
+  border:1px solid rgba(255,243,228,.25);border-radius:999px;padding:7px 15px;
+  transition:.15s;white-space:nowrap}
+.hlink:hover{color:var(--bg);background:var(--glow);border-color:var(--glow)}
+
+.phead{padding:52px 0 24px}
+.phead h1{font-size:clamp(24px,6vw,36px);font-weight:900;line-height:1.25}
+.phead p{margin-top:10px;font-size:13px;color:var(--dim);font-weight:500}
+
+main{padding-bottom:40px}
+.box{background:var(--bg2);border:1px solid rgba(255,243,228,.12);
+  border-radius:20px;padding:26px 24px;margin-bottom:16px}
+.box h2{font-size:17px;font-weight:900;margin-bottom:12px;color:var(--glow)}
+.box h3{font-size:14.5px;font-weight:700;margin:18px 0 6px}
+.box p{font-size:14px;color:var(--dim);font-weight:500}
+.box p + p{margin-top:12px}
+.box ul{margin:10px 0 0 20px}
+.box li{font-size:14px;color:var(--dim);font-weight:500;margin-bottom:6px}
+
+.dl{margin-top:4px}
+.dl div{display:flex;gap:14px;padding:11px 0;
+  border-bottom:1px solid rgba(255,243,228,.09);flex-wrap:wrap}
+.dl div:last-child{border-bottom:none}
+.dl dt{font-size:13px;font-weight:700;min-width:118px;color:var(--ink)}
+.dl dd{font-size:14px;color:var(--dim);font-weight:500;flex:1;min-width:200px;
+  word-break:break-all}
+
+.mail{display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+  font-weight:900;font-size:15px;border-radius:999px;padding:14px 28px;
+  background:var(--glow);color:#1B2233;box-shadow:0 4px 0 #C9A227;
+  transition:.1s;margin-top:18px}
+.mail:active{transform:translateY(3px);box-shadow:0 1px 0 #C9A227}
+
+.back{display:inline-block;margin-top:6px;font-size:13px;font-weight:700;
+  color:var(--dim);text-decoration:none;border-bottom:1px solid rgba(255,243,228,.25);
+  padding-bottom:2px}
+.back:hover{color:var(--glow);border-color:var(--glow)}
+
+footer{padding:40px 0 60px;text-align:center;font-size:11.5px;
+  color:rgba(255,243,228,.38);font-weight:500;
+  border-top:1px solid rgba(255,243,228,.08);margin-top:20px}
+footer a{color:rgba(255,243,228,.55)}
+.fnav{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 18px;
+  margin-bottom:14px}
+.fnav a{text-decoration:none}
+.fnav a:hover{color:var(--glow)}
+.upd{font-size:11px;color:rgba(255,243,228,.35);margin-top:20px;font-weight:500}
