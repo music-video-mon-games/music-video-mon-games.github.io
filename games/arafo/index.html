@@ -11,8 +11,8 @@
   body{margin:0;background:#000;color:var(--fg);
     font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,sans-serif;font-size:14px;padding:0}
   h1,.sub,.bar,.phase,.jump,.grid,.note{display:none!important}
-  .wrap{max-width:none!important;width:100vw!important;height:100vh!important;margin:0!important;padding:0!important;display:flex!important;align-items:center;justify-content:center}
-  .stage{border-radius:0!important;aspect-ratio:16/9!important;width:100vw!important;height:auto!important;max-width:177.78vh!important;max-height:100vh!important}
+  .wrap{max-width:none!important;width:100vw!important;height:100vh!important;margin:0!important;padding:0!important;position:relative!important;overflow:hidden!important}
+  .stage{border-radius:0!important;position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important}
   #start{position:absolute;inset:0;z-index:99;display:flex;flex-direction:column;
     align-items:center;justify-content:center;background:#0a0b0e;color:#efece6;text-align:center;cursor:pointer}
   #start h2{font-size:clamp(28px,6vw,64px);font-weight:900;letter-spacing:.16em;margin-bottom:2vh}
@@ -1174,6 +1174,16 @@ function loop(now){
   const sc=document.getElementById('score'); sc.textContent='SCORE '+G.score+'　COMBO '+G.combo; sc.style.fontSize=(stage.clientWidth*1.5/100)+'px';
   requestAnimationFrame(loop);
 }
+function fitStage(){
+  const W=window.innerWidth, H=window.innerHeight;
+  let w=W, hgt=w*9/16;
+  if(hgt>H){ hgt=H; w=hgt*16/9; }
+  stage.style.width=Math.round(w)+'px';
+  stage.style.height=Math.round(hgt)+'px';
+  render();
+}
+window.addEventListener('resize',fitStage);
+fitStage();
 const startEl=document.getElementById('start');
 let started=false;
 function beginGame(){ started=true; startEl.style.display='none';
